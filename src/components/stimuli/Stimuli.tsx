@@ -3,16 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import StimuliCard from './stimuliCard';
 
-/**
- * Retrieve stimuli image URLs from backend
- *
- * @returns
- */
-async function fetchStimuli() {
-  const address = `${process.env.REACT_APP_BACKEND_ADDRESS}/image`;
-  const response = await fetch(address);
-  const body = await response.json();
-  return body.files;
+function generateCards(stimuliUrls: Array<string>) {
+  const cards: Array<JSX.Element> = [];
+  stimuliUrls.forEach(url => {
+    cards.push(<StimuliCard url={url} key={url} />);
+  });
+
+  return cards;
 }
 
 function Stimuli() {
@@ -36,7 +33,8 @@ function Stimuli() {
   return (
     <Container>
       <Row>
-        {hasError ? <div>Error encountered while loading images.</div> : <StimuliCard url='google.com' filename='somefile.txt' />}
+        {hasError && <div>Error encountered while loading images.</div>}
+        {stimuliUrls && generateCards(stimuliUrls)}
       </Row>
     </Container>
   );
