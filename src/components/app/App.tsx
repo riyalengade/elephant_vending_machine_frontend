@@ -6,8 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
 
-const Home = lazy(() => import('./home/Home'));
-const Stimuli = lazy(() => import('./stimuli/Stimuli'));
+const Home = lazy(() => import('../home/Home'));
+const Stimuli = lazy(() => import('../stimuli/Stimuli'));
 
 function App() {
   return (
