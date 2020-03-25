@@ -11,9 +11,8 @@ function App() {
   return (
     <Container fluid>
       <Navbar bg="primary" variant="dark" className="mb-3">
-        <Navbar.Brand href="#home">Elephant Vending Machine</Navbar.Brand>
+        <Navbar.Brand href="/">Elephant Vending Machine</Navbar.Brand>
       </Navbar>
-      <Row></Row>
       <Row>
         <Col>
           <Router>
