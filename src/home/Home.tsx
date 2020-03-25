@@ -1,25 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import './Home.css';
 
 function Home() {
   return (
-    <div className="Home">
-      <header className="Home-header">
-        <img src={logo} className="Home-logo" alt="logo" />
-        <p>
-          Edit <code>src/Home.tsx</code> and save to reload.
-        </p>
-        <a
-          className="Home-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <Button
+            variant="secondary"
+            className="my-3"
+            block
+          >
+            Run Experiment
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button
+            variant="secondary"
+            className="my-3"
+            block
+          >
+            Manage Logs
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button
+            variant="secondary"
+            className="my-3"
+            block
+          >
+            Manage Experiments
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button
+            variant="secondary"
+            className="my-3"
+            block
+          >
+            Manage Stimuli
+          </Button>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
