@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 
 const Home = lazy(() => import('./home/Home'));
+const Stimuli = lazy(() => import('./stimuli/Stimuli'));
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
                 <Route exact path="/" component={Home} />
+                <Route path="/stimuli" component={Stimuli} />
               </Switch>
             </Suspense>
           </Router>

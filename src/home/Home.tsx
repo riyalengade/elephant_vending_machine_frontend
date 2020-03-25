@@ -46,6 +46,7 @@ function Home() {
           <Button
             variant="secondary"
             className="my-3"
+            href="/stimuli"
             block
           >
             Manage Stimuli
