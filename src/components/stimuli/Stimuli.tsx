@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import StimuliCard from './stimuliCard';
 
 /**
  * Retrieve stimuli image URLs from backend
@@ -38,7 +36,7 @@ function Stimuli() {
   return (
     <Container>
       <Row>
-        {hasError ? <div>Error encountered while loading images.</div> : <Button>Temp</Button>}
+        {hasError ? <div>Error encountered while loading images.</div> : <StimuliCard url='google.com' filename='somefile.txt' />}
       </Row>
     </Container>
   );
