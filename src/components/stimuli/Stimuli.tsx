@@ -1,93 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+
+/**
+ * Retrieve stimuli image URLs from backend
+ *
+ * @returns
+ */
+async function fetchStimuli() {
+  const address = `${process.env.REACT_APP_BACKEND_ADDRESS}/image`;
+  const response = await fetch(address);
+  const body = await response.json();
+  return body.files;
+}
 
 function Stimuli() {
+  const [hasError, setErrors] = useState(false);
+  const [stimuliUrls, setStimuliUrls] = useState([]);
+
+  async function fetchStimuliUrls() {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/image`);
+      const body = await response.json();
+      setStimuliUrls(body.files);
+    } catch (err) {
+      setErrors(err);
+    }
+  }
+
+  useEffect(() => {
+    fetchStimuliUrls();
+  }, []);
+
   return (
     <Container>
       <Row>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card className="mb-4">
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} lg={4} xl={3} className="py-2">
-          <Card>
-            <Card.Img variant="top" src="//placehold.it/500x280" className="img-fluid" />
-            <Card.Body>
-              <Card.Text>
-                filename.png
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+        {hasError ? <div>Error encountered while loading images.</div> : <Button>Temp</Button>}
       </Row>
     </Container>
   );
