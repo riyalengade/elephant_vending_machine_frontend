@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 interface StimuliCardProps {
   url: string
@@ -13,7 +14,7 @@ function StimuliCard({url}: StimuliCardProps): ReactElement<StimuliCardProps> {
 
   return (
     <Col md={6} lg={4} xl={3} className="py-2">
-      <Card className="mb-4">
+      <Card className="mb-4 h-100">
         <Card.Img
           variant="top"
           src={url}
@@ -21,6 +22,7 @@ function StimuliCard({url}: StimuliCardProps): ReactElement<StimuliCardProps> {
         />
         <Card.Body>
           <Card.Text>{filename}</Card.Text>
+          <Button href={url} variant="secondary">View</Button>
         </Card.Body>
       </Card>
     </Col>
