@@ -1,3 +1,4 @@
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/<riyalengade>/<elephant_vending_machine_frontend>/&lt;master>.svg?style=flat-square)](https://codecov.io/gh/<riyalengade>/<elephant_vending_machine_frontend>/)
 # Elephant Vending Machine
 OSU CSE 5911 Capstone Project: Elephant Vending Machine in coordination with Cincinnati Zoo. Designed to facilitate automated behavioral psychology experiments.
 
