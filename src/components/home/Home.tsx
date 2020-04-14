@@ -9,7 +9,13 @@ const Home: React.FC = () => {
     <Container>
       <Row>
         <Col>
-          <Button variant="secondary" size="lg" className="my-3" block>
+          <Button
+            variant="secondary"
+            size="lg"
+            className="my-3"
+            href="/experimentRunner"
+            block
+          >
             Run Experiment
           </Button>
         </Col>
@@ -23,7 +29,13 @@ const Home: React.FC = () => {
       </Row>
       <Row>
         <Col>
-          <Button variant="secondary" size="lg" className="my-3" block>
+          <Button
+            variant="secondary"
+            size="lg"
+            className="my-3"
+            href="/experiment"
+            block
+          >
             Manage Experiments
           </Button>
         </Col>
